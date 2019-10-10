@@ -1,0 +1,37 @@
+{
+  "name": "shahariaazam/smtp-mailer",
+  "description": "Send email via SMTP from your PHP application. This library was built on phpmailer/phpmailer and compatible with using omnimail/omnimail with simplified implementation",
+  "keywords": ["smtp", "email"],
+  "homepage": "https://github.com/shahariaazam/smtp-mailer",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Shaharia Azam",
+      "email": "shaharia.azam@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.0.0",
+    "ext-curl": "*",
+    "omnimail/omnimail": "^0.3.2",
+    "phpmailer/phpmailer": "^6.1",
+    "psr/log": "^1.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.1",
+    "phpunit/php-code-coverage": "^6.0",
+    "fzaninotto/faker": "^1.7",
+    "phpspec/prophecy": "~1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "ShahariaAzam\\SMTPMailer\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ShahariaAzam\\SMTPMailer\\Tests\\": "tests/"
+    }
+  }
+}
