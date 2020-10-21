@@ -38,7 +38,7 @@ class SMTPMailer implements MailerInterface
      * @param $password
      * @param array $options
      */
-    public function __construct($smtpHost, $username, $password, array $options = [])
+    public function __construct($smtpHost, $username, $password, array $options = [], $headers = [])
     {
         $this->smtpHost = $smtpHost;
         $this->username = $username;
@@ -53,6 +53,9 @@ class SMTPMailer implements MailerInterface
         $mailer->Password   = $this->password;                               // SMTP password
         $mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
         $mailer->Port       = !isset($options['port']) ? 587 : intval($options['port']);
+        foreach ($headers as $header => $value) {
+          $mailer->AddCustomHeader( "$header: $value" );
+        }
         $this->processor = $mailer;
     }
 
